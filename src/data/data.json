@@ -2,56 +2,67 @@
   {
     "name": "Fiddle Leaf Fig",
     "water_after": "7 days",
-    "id": 0
+    "id": 0,
+    "src": "../../cactus.svg"
   },
   {
     "name": "Snake Plant",
     "water_after": "14 days",
-    "id": 1
+    "id": 1,
+    "src": "../../camellia.svg"
   },
   {
     "name": "Money Tree",
     "water_after": "14 days",
-    "id": 2
+    "id": 2,
+    "src": "../../crops.svg"
   },
   {
     "name": "Bird's Nest Fern",
     "water_after": "3 days",
-    "id": 3
+    "id": 3,
+    "src": "../../flower.svg"
   },
   {
     "name": "Croton",
     "water_after": "7 days",
-    "id": 4
+    "id": 4,
+    "src": "../../green-tea.svg"
   },
   {
     "name": "Bell Pepper Plant",
     "water_after": "3 days",
-    "id": 5
+    "id": 5,
+    "src": "../../idea.svg"
   },
   {
     "name": "Strawberry Plant",
     "water_after": "3 days",
-    "id": 6
+    "id": 6,
+    "src": "../../plant.svg"
   },
   {
     "name": "Dracaena",
     "water_after": "14 days",
-    "id": 7
+    "id": 7,
+    "src": "../../plant1.svg"
   },
   {
     "name": "Spider Plant",
     "water_after": "7 days",
-    "id": 8
+    "id": 8,
+    "src": "../../plant2.svg"
   },
   {
     "name": "Jade",
     "water_after": "14 days",
-    "id": 9
+    "id": 9,
+    "src": "../../rose.svg"
   },
   {
     "name": "Wavy Fern",
     "water_after": "2 days",
-    "id": 10
+    "id": 10,
+    "src": "../../tulips.svg"
   }
 ]

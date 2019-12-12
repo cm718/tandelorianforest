@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 import Card from "../components/card"
 import plants from '../data/data.json'
 
@@ -13,13 +13,15 @@ class IndexPage extends React.Component {
     const month = this.state.month;
     const date = this.state.date;
     return(
-      <Fragment className="m-8">
-         <h3 className='text-center'>Today is {month} {date}</h3>
-         {this.state.plants.map(plant => 
-          <Card key={plant.id} name={plant.name} water={plant.water_after}/>
-          )}
+      <div className="m-8">
+         <h3 className='text-center'>Plants to water on {month} {date}</h3>
+         <div className='flex-wrap justify-around'>
+            {this.state.plants.map(plant => 
+              <Card key={plant.id} src={plant.src} name={plant.name} water={plant.water_after}/>
+              )}
+         </div>
           <div>Icons made by <a href="https://www.flaticon.com/authors/ultimatearm" title="ultimatearm">ultimatearm</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-      </Fragment>
+      </div>
     )
   }
 }
