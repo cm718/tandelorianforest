@@ -15,12 +15,12 @@ class IndexPage extends React.Component {
     return(
       <div className="m-8">
          <h3 className='text-center'>Plants to water on {month} {date}</h3>
-         <div className='flex-wrap justify-around'>
+         <div className='flex-row flex flex-wrap justify-around'>
             {this.state.plants.map(plant => 
               <Card key={plant.id} src={plant.src} name={plant.name} water={plant.water_after}/>
               )}
          </div>
-          <div>Icons made by <a href="https://www.flaticon.com/authors/ultimatearm" title="ultimatearm">ultimatearm</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+          <div className='text-center mt-5' >Icons made by <a href="https://www.flaticon.com/authors/ultimatearm" title="ultimatearm">ultimatearm</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
       </div>
     )
   }
