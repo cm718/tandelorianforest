@@ -1,6 +1,7 @@
 import React from "react"
-import Card from "../components/card"
+import Card from "../components/Card"
 import plants from "../data/data.json"
+import Button from '../components/NavButton'
 
 class IndexPage extends React.Component {
   state = {
@@ -12,30 +13,10 @@ class IndexPage extends React.Component {
     const date = this.state.date
     return (
       <div className="mx-auto container">
-        <h4 className="text-xl font-black text-center text-green-600">
+        <div className="my-8 text-xl font-black text-center text-green-600">
           Plants to water on 12/{date}
-        </h4>
-        {date === 16 ? 
-          <div className="flex justify-center md:justify-end">
-            <button className="
-              bg-green-500 hover:bg-transparent hover:border-green-700
-              text-white font-semibold hover:text-green-700 
-              py-1 px-2 md:w-32 w-full border border-green-500 
-              hover:border-transparent rounded">Next day</button>
-          </div> 
-            : 
-          <div className="flex justify-around md:justify-between">
-            <button className="
-              bg-transparent hover:bg-green-500 
-              text-green-700 font-semibold hover:text-white 
-              py-1 px-2 border border-green-500 
-              hover:border-transparent rounded">Last Day</button>
-            <button className="
-              bg-transparent hover:bg-green-500 
-              text-green-700 font-semibold hover:text-white 
-              py-1 px-2 border border-green-500 
-              hover:border-transparent rounded">Next day</button>
-          </div>  }
+        </div>
+        <Button date={date}/>
         <div
           className="
           flex
