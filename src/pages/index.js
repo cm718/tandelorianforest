@@ -15,7 +15,7 @@ class IndexPage extends React.Component {
         <h4 className="text-xl font-black text-center text-green-600">
           Plants to water on 12/{date}
         </h4>
-        {date == 16 ? 
+        {date === 16 ? 
           <div className="flex justify-center md:justify-end">
             <button className="
               bg-transparent hover:bg-green-500 
@@ -39,8 +39,8 @@ class IndexPage extends React.Component {
         <div
           className="
           flex-row 
-          flex flex-wrap 
-          justify-around"
+          flex flex-wrap
+          justify-between"
         >
           {this.state.plants.map(plant => (
             <Card
