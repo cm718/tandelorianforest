@@ -1,59 +1,75 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Card from "../components/Card"
-import plants from "../data/data.json"
+import plantData from "../data/data.json"
 import Button from '../components/NavButton'
 
-class IndexPage extends React.Component {
-  state = {
-    plants,
-    date: 16,
+const IndexPage = () => {
+
+  const [plants, setPlants] = useState(plantData)
+  const [date, setDate] = useState(16)
+  const [day, setDay] = useState('Monday')
+  const [count, setCount] = useState(0)
+
+  const week = ['Monday', 'Tuesday', 'Wednesday', 
+  'Thursday', 'Friday', 'Saturday', 'Sunday']
+
+  const dayChanger = () => {
+      setDay(week[count])
   }
 
-  filterPlants = () => {
-    // make cleaner varialbes
-    const today = this.state.date;
-    const plants = this.state.plants;
-    console.log(today)
-    // if the date is greater than 16
-    if(today !== 16){
-      let thisDate = today - 16;
-      const todaysPlants = plants.filter(plant => (thisDate % plant.water_after) === 0)
-      this.setState({ plants: todaysPlants })
-    }
-    // sub 16 and % the water_after data
-    // if that === 0 then show
-  }
+  useEffect(() => {
+    dayChanger()
+  }, [date])
 
-  handleNavButton = (e) => {
+  const handleNavButton = (e) => {
     let name = e.target.innerHTML;
     if(name === "Next Day"){
-    this.setState({
-      date: this.state.date + 1
-    })} else {
-    this.setState({
-      date: this.state.date - 1
-    })
-  }
-}
+      setDate(date + 1)
+      if(day !== "Sunday"){
+        setCount(count + 1)
+      } else {
+        setCount(0)
+      }
+    } else {
+        setDate(date - 1)
+        if(day !== "Monday"){
+          setCount(count - 1)
+        } else {
+          setCount(6)
+        }
+      }
+    }
 
-  render() {
-    // console.log(this.state);
-    const date = this.state.date
+  //   filterPlants = () => {
+  //     // make cleaner varialbes
+  //     const today = this.state.date;
+  //     const plants = this.state.plants;
+  //     console.log(today)
+  //     // if the date is greater than 16
+  //     if(today !== 16){
+  //       let thisDate = today - 16;
+  //       const todaysPlants = plants.filter(plant => (thisDate % plant.water_after) === 0)
+  //       this.setState({ plants: todaysPlants })
+  //     }
+  //     // sub 16 and % the water_after data
+  //     // if that === 0 then show
+  //   }
+
     return (
       <div className="mx-auto container">
         <div className="my-8 text-xl font-black text-center text-green-600">
-          Plants to water on 12/{date}
+          Plants to water on {day} 12/{date}
         </div>
 
         {
           date === 16 ?
           <div className="flex justify-center md:justify-end">
-          <Button handleNavButton={this.handleNavButton} name='Next' date={date} />
+          <Button handleNavButton={handleNavButton} name='Next' date={date} />
           </div>
           :
           <div className="flex justify-around md:justify-between">
-          <Button handleNavButton={this.handleNavButton} name='Last' date={date} />
-          <Button handleNavButton={this.handleNavButton} name='Next' date={date} />
+          <Button handleNavButton={handleNavButton} name='Last' date={date} />
+          <Button handleNavButton={handleNavButton} name='Next' date={date} />
           </div>
         }
         <div
@@ -64,7 +80,7 @@ class IndexPage extends React.Component {
           justify-center
           sm:justify-between"
         >
-          {this.state.plants.map(plant => (
+          {plants.map(plant => (
             <Card
               key={plant.id}
               src={plant.src}
@@ -89,6 +105,5 @@ class IndexPage extends React.Component {
       </div>
     )
   }
-}
 
 export default IndexPage
