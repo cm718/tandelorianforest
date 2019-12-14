@@ -54,10 +54,6 @@ const IndexPage = () => {
     }
     dayChanger()
   }, [date])
-  
-  // useEffect(() => {
-    //   setCount(count)
-    // }, [count])
     
     const handleNavButton = e => {
       let name = e.target.innerHTML
