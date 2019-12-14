@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NavButton = ({ name, date, handleNavButton }) => {
+const NavButton = ({ name, handleNavButton }) => {
   return (
           <button 
           onClick={handleNavButton}
