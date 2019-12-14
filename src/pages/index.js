@@ -8,9 +8,9 @@ const IndexPage = () => {
   const [date, setDate] = useState(16)
   const [count, setCount] = useState(0)
   const [day, setDay] = useState("Monday")
-  const [month, setMonth] = useState("Dec")
   const [dayIndex, setDayIndex] = useState(0)
-  const [monthIndex, setMonthIndex] = useState(0)
+  // const [month, setMonth] = useState("Dec")
+  // const [monthIndex, setMonthIndex] = useState(0)
 
   const week = [
     "Monday",
@@ -23,54 +23,54 @@ const IndexPage = () => {
   ]
 
   const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
+    {monthName: "Jan", days: 31},
+    {monthName: "Feb", days: 28},
+    {monthName: "Mar", days: 31},
+    {monthName: "Apr", days: 30},
+    {monthName: "May", days: 31},
+    {monthName: "Jun", days: 30},
+    {monthName: "Jul", days: 31},
+    {monthName: "Aug", days: 31},
+    {monthName: "Sep", days: 30},
+    {monthName: "Oct", days: 31},
+    {monthName: "Nov", days: 30},
+    {monthName: "Dec", days: 31}
   ]
 
-  const filterPlants = () => {
-    const filteredPlantArr = plantData.filter(
-      plant => count % +plant.water_after.split(' ')[0] === 0
-    )
-    if(date !== 16){
-      setPlants(filteredPlantArr)
-    } else {
-      setPlants(plantData)
-    }
-  }
-  
   useEffect(() => {
     const dayChanger = () => {
       setDay(week[dayIndex])
     }
-    dayChanger()
-  }, [date])
-    
-    const handleNavButton = e => {
-      let name = e.target.innerHTML
-      if (name === "Next Day") {
-        setDate(date + 1)
-        setCount(count + 1)
-        filterPlants()
-        if (day !== "Sunday") {
-          setDayIndex(dayIndex + 1)
-        } else {
-          setDayIndex(0)
-        }
+    const filterPlants = () => {
+      const filteredPlantArr = plantData.filter(
+        plant => count % +plant.water_after.split(" ")[0] === 0
+      )
+      if (date === 16) {
+        setPlants(plantData)
       } else {
-        setDate(date - 1)
-        setCount(count -1)
-        filterPlants()
-        if (day !== "Monday") {
+        setPlants(filteredPlantArr)
+      }
+    }
+    dayChanger()
+    filterPlants()
+  }, [date])
+
+  const handleNavButton = e => {
+    let name = e.target.innerHTML
+    if (name === "Next Day") {
+      setDate(date + 1)
+      setCount(count + 1)
+
+      if (day !== "Sunday") {
+        setDayIndex(dayIndex + 1)
+      } else {
+        setDayIndex(0)
+      }
+    } else {
+      setDate(date - 1)
+      setCount(count - 1)
+
+      if (day !== "Monday") {
         setDayIndex(dayIndex - 1)
       } else {
         setDayIndex(6)
@@ -80,8 +80,11 @@ const IndexPage = () => {
 
   return (
     <div className="mx-auto container">
-      <div className="my-8 text-xl font-black text-center text-green-600">
-        Plants to water on {day} 12/{date}
+      <div className="my-10 text-xl font-black text-center text-green-600">
+        {day} 12/{date}
+      </div>
+      <div className="mb-4 text-lg font-black text-center text-green-500">
+        Plants to water today
       </div>
 
       {date === 16 ? (
