@@ -9,22 +9,9 @@ const IndexPage = () => {
   const [count, setCount] = useState(0)
   const [day, setDay] = useState("Monday")
   const [dayIndex, setDayIndex] = useState(0)
-  // const [month, setMonth] = useState("Dec")
-  // const [monthIndex, setMonthIndex] = useState(0)
-
-  const week = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ]
-
   const months = [
     {monthName: "Jan", days: 31},
-    {monthName: "Feb", days: 28},
+    {monthName: "Feb", days: 29},
     {monthName: "Mar", days: 31},
     {monthName: "Apr", days: 30},
     {monthName: "May", days: 31},
@@ -36,6 +23,24 @@ const IndexPage = () => {
     {monthName: "Nov", days: 30},
     {monthName: "Dec", days: 31}
   ]
+  const [monthIndex, setMonthIndex] = useState(11)
+  console.log(monthIndex)
+  let testingMonthName = months[monthIndex].monthName
+  console.log(typeof(testingMonthName))
+  const [month, setMonth] = useState(testingMonthName)
+  console.log(month)
+  
+
+  const week = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ]
+
 
   useEffect(() => {
     const dayChanger = () => {
@@ -45,7 +50,7 @@ const IndexPage = () => {
       const filteredPlantArr = plantData.filter(
         plant => count % +plant.water_after.split(" ")[0] === 0
       )
-      if (date === 16) {
+      if (date === 16 && month === 'Dec') {
         setPlants(plantData)
       } else {
         setPlants(filteredPlantArr)
@@ -56,24 +61,54 @@ const IndexPage = () => {
   }, [date])
 
   const handleNavButton = e => {
+    let {monthName, days: daysPerMonth } = months[monthIndex]
     let name = e.target.innerHTML
     if (name === "Next Day") {
-      setDate(date + 1)
       setCount(count + 1)
-
+      
+      // sets the day of the week
       if (day !== "Sunday") {
+        // if we are not at the end of the week
+        // advance to the next day
         setDayIndex(dayIndex + 1)
       } else {
+        // if we are on Sunday go to Monday
         setDayIndex(0)
       }
-    } else {
-      setDate(date - 1)
-      setCount(count - 1)
 
+      // set the monthName and monthIndex
+      if (date < daysPerMonth) {
+        setDate(date + 1)
+      } else {
+        setDate(1)
+        if (monthName !== 'Dec' ) {
+          setMonthIndex(monthIndex + 1)
+          console.log('advancing month')
+        } else {
+          setMonthIndex(0)
+          console.log('going back to january')
+          console.log(`month is ${monthInd}`)
+        }
+      }
+    } else { // if user clicks Last Day
+      setCount(count - 1)
+      
+      // sets the day of the week
       if (day !== "Monday") {
         setDayIndex(dayIndex - 1)
       } else {
         setDayIndex(6)
+      }
+
+      // set the monthName and monthIndex
+      if (date > 1){
+        setDate(date - 1)
+      } else {
+        if (monthName !== "Jan") {
+          setMonthIndex(monthIndex - 1)
+        } else {
+          setMonthIndex(11)
+        }
       }
     }
   }
@@ -81,13 +116,13 @@ const IndexPage = () => {
   return (
     <div className="mx-auto container">
       <div className="my-10 text-xl font-black text-center text-green-600">
-        {day} 12/{date}
+        {day} {month}/{date}
       </div>
       <div className="mb-4 text-lg font-black text-center text-green-500">
         Plants to water today
       </div>
 
-      {date === 16 ? (
+      {month === 'Dec' && date === 16 ? (
         <div className="flex justify-center md:justify-end">
           <Button handleNavButton={handleNavButton} name="Next" date={date} />
         </div>
