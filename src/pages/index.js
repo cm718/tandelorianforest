@@ -66,6 +66,30 @@ const IndexPage = () => {
     dayChanger()
     filterPlants()
   }, [date])
+  
+  useEffect(() => {
+    const filterWeekend = () => {
+      // if it's friday return a new array with count + 1
+      if (day === "Friday") {
+        const wkndPlnts = plantData.filter(
+          plant => (count + 1) % +plant.water_after.split(" ")[0] === 0
+        )
+        setWeekendPlants(wkndPlnts)
+      } 
+      if (day === 'Monday' && date === 16 && month === 'December') {
+        return null
+      } 
+      
+      if (day === 'Monday') {
+        // if it's Monday return a new array with count - 1
+        const wkndPlnts = plantData.filter(
+          plant => (count - 1) % +plant.water_after.split(" ")[0] === 0
+        )
+        setWeekendPlants(wkndPlnts)
+      }
+    }
+    filterWeekend()
+  }, [day])
 
   const handleNavButton = e => {
     let {monthName, days: daysPerMonth } = months[monthIndex]
