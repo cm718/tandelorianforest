@@ -21,6 +21,8 @@
     "tailwindcss": "^1.1.4"
   },
   "devDependencies": {
+    "@testing-library/react": "^9.4.0",
+    "jest": "^24.9.0",
     "prettier": "^1.19.1"
   },
   "keywords": [
@@ -34,7 +36,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "test": "jest --coverage --silent",
+    "test-watch": "jest --coverage --watch",
     "build.css": "tailwind build src/css/tailwind.css -o public/style.css"
   },
   "repository": {
