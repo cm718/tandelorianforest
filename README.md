@@ -1,53 +1,56 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
+    <img alt="idea plant" src="static/plant1.svg" width="70" />
   </a>
 </p>
 <h1 align="center">
-  Gatsby's default starter
+  Welcome to Tandelorian Forest
 </h1>
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+This simple app was designed to help the Tandelorians at Tandem keep track of their ever growing forest of plants. It's tough work keeping track of when to water each one. Hopefully this can help.
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
 
-## 🚀 Quick start
+_See below a couple ways to use this tool as well as the work that went into creating it._ 
 
-1.  **Create a Gatsby site.**
+## ⚡️ How to get started
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+1.  **Download repo to your machine to run locally.**
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
+    Navigate to the folder in your terminal and first make sure all of your dependencies are in place using:
+
     ```
-
-1.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
-
-    ```shell
-    cd my-default-starter/
-    gatsby develop
+    npm install
     ```
+    Then you can run the site in Node using 
 
-1.  **Open the source code and start editing!**
+    ```
+    npm start
+    ```
+    Then in your browser visit `http://localhost:8000`
 
-    Your site is now running at `http://localhost:8000`!
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+1.  **Simply visit the deployed website online.**
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+    Navigate in your browser to [tandelorianforest.com](www.google.com)
 
-## 🧐 What's inside?
+    Here you will find the deployed site.
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+## 🚘 What is running under the hood?
 
-    .
+- This site was created with the [React](https://www.reactjs.org). This framework is a component-based JavaScript library used to build user interfaces.
+
+- For styling I used [Tailwind](https://www.tailwindcss.com) which is a utility-first CSS framework. According to their own site: "Most CSS frameworks do too much." Instead Tailwind supplies low-level utility classes and lets you code the rest.
+
+- To ensure consistency across the application [Prettier](https://prettier.io/) was used for code formatting. 
+
+- This site was spun up using [Gatsby](https://www.gatsbyjs.org/) and many of the dependencies will be related to their default dependencies.
+
+Here is a quick look at the top-level files and directories you'll see in this application.
+
     ├── node_modules
     ├── src
+    ├── static
     ├── .gitignore
+    ├── .prettierignore
     ├── .prettierrc
     ├── gatsby-browser.js
     ├── gatsby-config.js
@@ -56,42 +59,53 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
     ├── LICENSE
     ├── package-lock.json
     ├── package.json
-    └── README.md
+    ├── postcss.config.js
+    ├── README.md
+    └── tailwind.config.js
 
 1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+1.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+1. **`/static`**: This folder is used to hold svg images for each plant. The reference is held in the data.json file.
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+1.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+1.  **`.prettierignore`**: This file tells Prettier which files it should not format when it runs.
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+1.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+1.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+1.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
 
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
+1.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
 
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+1.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
 
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+1.  **`LICENSE`**: Gatsby is licensed under the MIT license.
 
-12. **`README.md`**: A text file containing useful reference information about your project.
+1. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
 
-## 🎓 Learning Gatsby
+1. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+1. **`postcss.config.js`**: This file is used to configure the plugin for Tailwind.
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+1. **`README.md`**: A text file containing useful reference information about the project. You're reading it now. 😉
 
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+1. **`tailwind.config.js`**: This file contains any modifications or configurations made by the developer to the Tailwind rules. The only changes I made were to add an extra small screen size.
 
-## 💫 Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+## 🚀 Deployed With Netlify
 
-<!-- AUTO-GENERATED-CONTENT:END -->
+- Learn more about deploying your code to Netlify
+
+  [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+
+## 👋 Want to learn more?
+
+- **Looking for more of my work?** Most of my code lives [on my github](https://www.github.org/cm718).
+
+- **If you live around Chicago and would like to grab coffee** to discuss _coding, good food, or board games_ then [email me](mailto:info@chrismclaughlin.dev).
+
+- And if you read this far -- *thank you*! 🙏
