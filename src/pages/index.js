@@ -4,11 +4,27 @@ import plantData from "../data/data.json"
 import Button from "../components/NavButton"
 
 const IndexPage = () => {
+  // initial plant data set to state
   const [plants, setPlants] = useState(plantData)
+  // setting the date to start on the 16th
   const [date, setDate] = useState(16)
+  // setting a counter so I know when to water the plants
   const [count, setCount] = useState(0)
-  const [day, setDay] = useState("Monday")
+  // days of the week
+  const week = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ]
+  // setting the initial day to Monday
   const [dayIndex, setDayIndex] = useState(0)
+  const [day, setDay] = useState(week[dayIndex])
+
+  // months in a year and days in each month
   const months = [
     {monthName: "Jan", days: 31},
     {monthName: "Feb", days: 29},
@@ -23,28 +39,19 @@ const IndexPage = () => {
     {monthName: "Nov", days: 30},
     {monthName: "Dec", days: 31}
   ]
+  // setting the initial month to December per specs
   const [monthIndex, setMonthIndex] = useState(11)
-  console.log(monthIndex)
-  let testingMonthName = months[monthIndex].monthName
-  console.log(typeof(testingMonthName))
-  const [month, setMonth] = useState(testingMonthName)
-  console.log(month)
-  
-
-  const week = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ]
+  const [month, setMonth] = useState(months[monthIndex].monthName)
 
 
+  /* 
+  watches for when the date changes 
+  to run day changer and plant filter functions 
+  */
   useEffect(() => {
     const dayChanger = () => {
       setDay(week[dayIndex])
+      setMonth(months[monthIndex].monthName)
     }
     const filterPlants = () => {
       const filteredPlantArr = plantData.filter(
@@ -83,11 +90,8 @@ const IndexPage = () => {
         setDate(1)
         if (monthName !== 'Dec' ) {
           setMonthIndex(monthIndex + 1)
-          console.log('advancing month')
         } else {
           setMonthIndex(0)
-          console.log('going back to january')
-          console.log(`month is ${monthInd}`)
         }
       }
     } else { // if user clicks Last Day
@@ -106,8 +110,10 @@ const IndexPage = () => {
       } else {
         if (monthName !== "Jan") {
           setMonthIndex(monthIndex - 1)
+          setDate(months[monthIndex-1].days)
         } else {
           setMonthIndex(11)
+          setDate(31)
         }
       }
     }
