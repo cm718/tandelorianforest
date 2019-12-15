@@ -26,18 +26,18 @@ const IndexPage = () => {
 
   // months in a year and days in each month
   const months = [
-    {monthName: "Jan", days: 31},
-    {monthName: "Feb", days: 29},
-    {monthName: "Mar", days: 31},
-    {monthName: "Apr", days: 30},
+    {monthName: "January", days: 31},
+    {monthName: "February", days: 29},
+    {monthName: "March", days: 31},
+    {monthName: "April", days: 30},
     {monthName: "May", days: 31},
-    {monthName: "Jun", days: 30},
-    {monthName: "Jul", days: 31},
-    {monthName: "Aug", days: 31},
-    {monthName: "Sep", days: 30},
-    {monthName: "Oct", days: 31},
-    {monthName: "Nov", days: 30},
-    {monthName: "Dec", days: 31}
+    {monthName: "June", days: 30},
+    {monthName: "July", days: 31},
+    {monthName: "August", days: 31},
+    {monthName: "September", days: 30},
+    {monthName: "October", days: 31},
+    {monthName: "November", days: 30},
+    {monthName: "December", days: 31}
   ]
   // setting the initial month to December per specs
   const [monthIndex, setMonthIndex] = useState(11)
@@ -57,7 +57,7 @@ const IndexPage = () => {
       const filteredPlantArr = plantData.filter(
         plant => count % +plant.water_after.split(" ")[0] === 0
       )
-      if (date === 16 && month === 'Dec') {
+      if (date === 16 && month === 'December') {
         setPlants(plantData)
       } else {
         setPlants(filteredPlantArr)
@@ -88,7 +88,7 @@ const IndexPage = () => {
         setDate(date + 1)
       } else {
         setDate(1)
-        if (monthName !== 'Dec' ) {
+        if (monthName !== 'December' ) {
           setMonthIndex(monthIndex + 1)
         } else {
           setMonthIndex(0)
@@ -108,7 +108,7 @@ const IndexPage = () => {
       if (date > 1){
         setDate(date - 1)
       } else {
-        if (monthName !== "Jan") {
+        if (monthName !== "January") {
           setMonthIndex(monthIndex - 1)
           setDate(months[monthIndex-1].days)
         } else {
@@ -122,13 +122,13 @@ const IndexPage = () => {
   return (
     <div className="mx-auto container">
       <div className="my-10 text-xl font-black text-center text-green-600">
-        {day} {month}/{date}
+        {day}, {month} {date}
       </div>
       <div className="mb-4 text-lg font-black text-center text-green-500">
         Plants to water today
       </div>
 
-      {month === 'Dec' && date === 16 ? (
+      {month === 'December' && date === 16 ? (
         <div className="flex justify-center md:justify-end">
           <Button handleNavButton={handleNavButton} name="Next" date={date} />
         </div>
@@ -155,7 +155,7 @@ const IndexPage = () => {
           />
         ))}
       </div>
-      <h6 className="text-center mt-8">
+      <h6 className="text-center mt-8 mb-2 text-xs">
         Icons made by{" "}
         <a
           href="https://www.flaticon.com/authors/ultimatearm"
