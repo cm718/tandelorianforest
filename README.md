@@ -13,9 +13,9 @@ _See below a couple ways to use this tool as well as the work that went into cre
 
 ## ⚡️ How to get started
 
-1.  **Download repo to your machine to run locally.**
+1.  **Download the repo to your machine to run it locally.**
 
-    Navigate to the folder in your terminal and first make sure all of your dependencies are in place using:
+    Navigate to the folder in your terminal and make sure all of your dependencies are installed.
 
     ```
     npm install
