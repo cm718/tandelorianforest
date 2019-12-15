@@ -106,6 +106,6 @@ Here is a quick look at the top-level files and directories you'll see in this a
 
 - **Looking for more of my work?** Most of my code lives [on my github](https://www.github.org/cm718).
 
-- **If you live around Chicago and would like to grab coffee** to discuss _coding, good food, or board games_ then [email me](mailto:info@chrismclaughlin.dev).
+- **If you live around Chicago and would like to grab coffee** to discuss _coding, good food, or board games_ please [email me](mailto:info@chrismclaughlin.dev).
 
 - And if you read this far -- *thank you*! 🙏
