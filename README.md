@@ -36,13 +36,15 @@ _See below a couple ways to use this tool as well as the work that went into cre
 
 ## 🚘 What is running under the hood?
 
-- This site was created with the [React](https://www.reactjs.org). This framework is a component-based JavaScript library used to build user interfaces.
+- This site was created with the [React 16.12.0](https://www.reactjs.org). This framework is a component-based JavaScript library used to build user interfaces.
 
-- For styling I used [Tailwind](https://www.tailwindcss.com) which is a utility-first CSS framework. According to their own site: "Most CSS frameworks do too much." Instead Tailwind supplies low-level utility classes and lets you code the rest.
+- Built using [Node](https://www.nodejs.org). If you want to run this locally please use a minimum version of 10.14.1.
 
-- To ensure consistency across the application [Prettier](https://prettier.io/) was used for code formatting. 
+- For styling I used [Tailwind 1.1.4](https://www.tailwindcss.com) which is a utility-first CSS framework. According to their own site: "Most CSS frameworks do too much." Instead Tailwind supplies low-level utility classes and lets you code the rest.
 
-- This site was spun up using [Gatsby](https://www.gatsbyjs.org/) and many of the dependencies will be related to their default dependencies.
+- To ensure consistency across the application [Prettier 1.19.1](https://prettier.io/) was used for code formatting. 
+
+- This site was spun up using [Gatsby 2.18.8](https://www.gatsbyjs.org/) and many of the dependencies will be related to their default dependencies.
 
 Here is a quick look at the top-level files and directories you'll see in this application.
 
