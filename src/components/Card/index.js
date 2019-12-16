@@ -3,7 +3,7 @@ import React from "react"
 const Card = ({ water, src, name }) => {
   return (
     // card body
-    <div className="sm:w-1/2 md:w-1/3 xl:w-1/4 rounded-lg shadow-lg my-5 p-1">
+    <div className="xs:w-full sm:w-1/2 lg:w-1/3  rounded-lg shadow-lg my-5 p-1">
       {/* div for text including the name and the subheading to water it */}
       <div className="px-6 py-4 text-center">
         <div className="font-bold text-xl mb-1">{name}</div>
