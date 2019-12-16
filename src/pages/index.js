@@ -172,7 +172,7 @@ const IndexPage = () => {
           flex
           flex-row 
           flex-wrap
-          justify-center
+          justify-between
           sm:justify-between"
       >
         {plants.map(plant => (
@@ -183,17 +183,14 @@ const IndexPage = () => {
             water={plant.water_after}
           />
         ))}
-        <div>
 
-        </div>
         {day === "Friday" || day === "Monday" ? (
-        
-          <div>
             <div
               className="
               flex
               flex-row 
               flex-wrap
+              block
               justify-center
               sm:justify-between"
             >
@@ -206,7 +203,6 @@ const IndexPage = () => {
                 />
               ))}
             </div>
-          </div>
         ) : null}
       </div>
 
