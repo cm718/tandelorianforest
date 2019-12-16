@@ -23,8 +23,12 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
+    "babel-jest": "^24.9.0",
+    "babel-preset-gatsby": "^0.2.26",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "react-test-renderer": "^16.12.0"
   },
   "keywords": [
     "gatsby"
@@ -37,8 +41,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "jest --coverage --silent",
-    "test-watch": "jest --coverage --watch",
+    "test": "jest --silent",
+    "test-watch": "jest --watch",
     "build.css": "tailwind build src/css/tailwind.css -o public/style.css"
   },
   "repository": {
