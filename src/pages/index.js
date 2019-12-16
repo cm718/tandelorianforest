@@ -4,6 +4,8 @@ import plantData from "../data/data.json"
 import Title from '../components/Title'
 import NavButton from "../components/NavButton"
 import Footer from '../components/Footer'
+import CardContainer from '../components/CardContainer'
+import Message from '../components/Message'
 
 const IndexPage = () => {
   // initial plant data set to state
@@ -166,45 +168,43 @@ const IndexPage = () => {
         </div>
       )}
 
-      {/* Display the mapped over cards */}
-      <div
-        className="
-          flex
-          flex-row 
-          flex-wrap
-          justify-between
-          sm:justify-between"
-      >
-        {plants.map(plant => (
-          <Card
-            key={plant.id}
-            src={plant.src}
-            name={plant.name}
-            water={plant.water_after}
-          />
-        ))}
-
-        {day === "Friday" || day === "Monday" ? (
-            <div
-              className="
-              flex
-              flex-row 
-              flex-wrap
-              block
-              justify-center
-              sm:justify-between"
-            >
-              {weekendPlants.map(plant => (
-                <Card
-                  key={plant.id}
-                  src={plant.src}
-                  name={plant.name}
-                  water={plant.water_after}
-                />
-              ))}
-            </div>
-        ) : null}
-      </div>
+      {/* Display the mapped over cards if there are any*/}
+      {(day !== "Saturday" && day !== "Sunday") ? (
+        <CardContainer>
+          {plants.map(plant => (
+            <Card
+              key={plant.id}
+              src={plant.src}
+              name={plant.name}
+              water={plant.water_after}
+            />
+          ))}
+        </CardContainer>
+      ) : (
+        <Message day={day} message="Go enjoy your weekend." />
+      )}
+      {/* if it is a Friday also show Saturdays plants */}
+      {/* if it is a Monday also show Sundays plants */}
+      {(day === "Friday" || day === "Monday") && weekendPlants.length > 0 ? (
+        <div>
+          <div
+            className="
+          my-10 text-lg font-black text-center text-green-500"
+          >
+            Plants for {day === "Friday" ? `Saturday` : `Sunday`}
+          </div>
+          <CardContainer>
+            {weekendPlants.map(plant => (
+              <Card
+                key={plant.id}
+                src={plant.src}
+                name={plant.name}
+                water={plant.water_after}
+              />
+            ))}
+          </CardContainer>
+        </div>
+      ) : null}
 
       <Footer />
     </div>
