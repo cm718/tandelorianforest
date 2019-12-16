@@ -42,6 +42,7 @@ const IndexPage = () => {
   // setting the initial month to December per specs
   const [monthIndex, setMonthIndex] = useState(11)
   const [month, setMonth] = useState(months[monthIndex].monthName)
+  const [weekendPlants, setWeekendPlants] = useState([])
 
 
   /* 
@@ -151,8 +152,8 @@ const IndexPage = () => {
       <div className="mb-4 text-lg font-black text-center text-green-500">
         Plants to water today
       </div>
-
-      {month === 'December' && date === 16 ? (
+      {/* if it is our starting date only display the next button */}
+      {month === "December" && date === 16 ? (
         <div className="flex justify-center md:justify-end">
           <Button handleNavButton={handleNavButton} name="Next" date={date} />
         </div>
@@ -162,6 +163,7 @@ const IndexPage = () => {
           <Button handleNavButton={handleNavButton} name="Next" date={date} />
         </div>
       )}
+      {/* Display the mapped over  */}
       <div
         className="
           flex
@@ -178,7 +180,33 @@ const IndexPage = () => {
             water={plant.water_after}
           />
         ))}
+        <div>
+          
+        </div>
+        {day === "Friday" || day === "Monday" ? (
+        
+          <div>
+            <div
+              className="
+              flex
+              flex-row 
+              flex-wrap
+              justify-center
+              sm:justify-between"
+            >
+              {weekendPlants.map(plant => (
+                <Card
+                  key={plant.id}
+                  src={plant.src}
+                  name={plant.name}
+                  water={plant.water_after}
+                />
+              ))}
+            </div>
+          </div>
+        ) : null}
       </div>
+
       <h6 className="text-center mt-8 mb-2 text-xs">
         Icons made by{" "}
         <a
