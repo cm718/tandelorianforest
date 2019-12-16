@@ -92,11 +92,11 @@ Here is a quick look at the top-level files and directories you'll see in this a
 1. **`tailwind.config.js`**: This file contains any modifications or configurations made by the developer to the Tailwind rules. The only changes I made were to add an extra small screen size.
 
 
-## 🚀 Deployed With Netlify
+<!-- ## 🚀 Deployed With Netlify
 
 - Learn more about deploying your code to Netlify
 
-  [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+  [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default) -->
 
 ## 👋 Want to learn more?
 
