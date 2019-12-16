@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react"
 import Card from "../components/Card"
 import plantData from "../data/data.json"
-import Button from "../components/NavButton"
+import Title from '../components/Title'
+import NavButton from "../components/NavButton"
+import Footer from '../components/Footer'
 
 const IndexPage = () => {
   // initial plant data set to state
@@ -68,6 +70,10 @@ const IndexPage = () => {
     filterPlants()
   }, [date])
   
+  /*
+  Effect hook for filtering plants that 
+  fall on the weekend days
+  */
   useEffect(() => {
     const filterWeekend = () => {
       // if it's friday return a new array with count + 1
@@ -135,7 +141,7 @@ const IndexPage = () => {
       } else {
         if (monthName !== "January") {
           setMonthIndex(monthIndex - 1)
-          setDate(months[monthIndex-1].days)
+          setDate(months[monthIndex - 1].days)
         } else {
           setMonthIndex(11)
           setDate(31)
@@ -146,24 +152,21 @@ const IndexPage = () => {
 
   return (
     <div className="mx-auto container">
-      <div className="my-10 text-xl font-black text-center text-green-600">
-        {day}, {month} {date}
-      </div>
-      <div className="mb-4 text-lg font-black text-center text-green-500">
-        Plants to water today
-      </div>
+      <Title day={day} month={month} date={date} />
+
       {/* if it is our starting date only display the next button */}
       {month === "December" && date === 16 ? (
         <div className="flex justify-center md:justify-end">
-          <Button handleNavButton={handleNavButton} name="Next" date={date} />
+          <NavButton handleNavButton={handleNavButton} name="Next" />
         </div>
       ) : (
         <div className="flex justify-around md:justify-between">
-          <Button handleNavButton={handleNavButton} name="Last" date={date} />
-          <Button handleNavButton={handleNavButton} name="Next" date={date} />
+          <NavButton handleNavButton={handleNavButton} name="Last" />
+          <NavButton handleNavButton={handleNavButton} name="Next" />
         </div>
       )}
-      {/* Display the mapped over  */}
+
+      {/* Display the mapped over cards */}
       <div
         className="
           flex
@@ -181,7 +184,7 @@ const IndexPage = () => {
           />
         ))}
         <div>
-          
+
         </div>
         {day === "Friday" || day === "Monday" ? (
         
@@ -207,19 +210,7 @@ const IndexPage = () => {
         ) : null}
       </div>
 
-      <h6 className="text-center mt-8 mb-2 text-xs">
-        Icons made by{" "}
-        <a
-          href="https://www.flaticon.com/authors/ultimatearm"
-          title="ultimatearm"
-        >
-          ultimatearm
-        </a>{" "}
-        from{" "}
-        <a href="https://www.flaticon.com/" title="Flaticon">
-          www.flaticon.com
-        </a>
-      </h6>
+      <Footer />
     </div>
   )
 }
