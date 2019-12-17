@@ -44,18 +44,18 @@ _See below a couple ways to use this tool as well as the work that went into cre
 
     Here you will find the deployed site.
 
-> Here is a glimpse at what the site looks like on day one, which is December 16, 2019. It shows all the plants to be watered as well as the next button to see the following days.
 
 ![Image of all the plant icons](./static/dayone.png) 
+> Here is a glimpse at what the site looks like on day one, which is December 16, 2019. It shows all the plants to be watered as well as the next button to see the following days.
 
 
-> And when you go to check on the plants on the weekend you are met with the friendly reminder to go to something else instead.
 
 ![Website on weekend](./static/weekend.png) 
+> And when you go to check on the plants on the weekend you are met with the friendly reminder to go do something else instead.
 
-> 🎨 For each plant I had a custom icons drawn to resemble the real life plants:
 
 ![Image of all the plant icons](./static/allplants.png) 
+> 🎨 For each plant I had a custom icons drawn to resemble the real life plants:
 
 ## 👟 Next steps if there was more time
 The stipulations of the application gave only a week to code this site. Give more time I would:
