@@ -103,7 +103,8 @@ const IndexPage = () => {
   const handleNavButton = e => {
     let {monthName, days: daysPerMonth } = months[monthIndex]
     let name = e.target.innerHTML
-    if (name === "Next Day") {
+    console.log(name)
+    if (name === "Next") {
       setCount(count + 1)
       
       // sets the day of the week
@@ -127,9 +128,9 @@ const IndexPage = () => {
           setMonthIndex(0)
         }
       }
-    } else { // if user clicks Last Day
+    } 
+    if(name === "Last") { // if user clicks Last Day
       setCount(count - 1)
-      
       // sets the day of the week
       if (day !== "Monday") {
         setDayIndex(dayIndex - 1)
@@ -140,7 +141,8 @@ const IndexPage = () => {
       // set the monthName and monthIndex
       if (date > 1){
         setDate(date - 1)
-      } else {
+      } 
+      if (date === 1) {
         if (monthName !== "January") {
           setMonthIndex(monthIndex - 1)
           setDate(months[monthIndex - 1].days)
