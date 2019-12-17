@@ -8,31 +8,62 @@
 
 This simple app was designed to help the Tandelorians at Tandem keep track of their ever growing forest of plants. It's tough work keeping track of when to water each one. Hopefully this can help.
 
+This was a project assigned by Tandem as part of the application process for their Apprentice Software Engineer role. The acceptance criteria was as follows:
+
+- The user can view which plant(s) to water on which date(s).
+- The schedule covers the next 12 weeks starting next Monday.
+- No plants are watered on Saturdays or Sundays.
+- Each plant is watered on its desired schedule or as close as possible, taking into account weekends.
 
 _See below a couple ways to use this tool as well as the work that went into creating it._ 
 
+---
+
 ## ⚡️ How to get started
 
-1.  **Download the repo to your machine to run it locally.**
+1.  **Download or clone the repository to your machine to run it locally.**
 
-    Navigate to the folder in your terminal and make sure all of your dependencies are installed.
-
-    ```
-    npm install
-    ```
-    Then you can run the site in Node using 
-
-    ```
-    npm start
-    ```
-    Then in your browser visit `http://localhost:8000`
+> - *Note: this site was built using [Node](https://www.nodejs.org) 10.14.1. If you want to run this locally please use a minimum version of 10.14.1.*
 
 
-1.  **Simply visit the deployed website online.**
+  Navigate to the project directory in your terminal and make sure all of your dependencies are installed.
 
-    Navigate in your browser to [tandelorianforest.com](www.google.com)
+  ```
+  npm install
+  ```
+  Then you can run the site in Node using 
+
+  ```
+  npm start
+  ```
+  Then in your browser visit `http://localhost:8000`
+
+2.  **Simply visit the deployed website online.**
+
+    Navigate in your browser to [tandelorianforest.netlify.com](https://www.tandelorianforest.netlify.com)
 
     Here you will find the deployed site.
+
+> Here is a glimpse at what the site looks like on day one, which is December 16, 2019. It shows all the plants to be watered as well as the next button to see the following days.
+
+![Image of all the plant icons](./static/dayone.png) 
+
+
+> And when you go to check on the plants on the weekend you are met with the friendly reminder to go to something else instead.
+
+![Website on weekend](./static/weekend.png) 
+
+> 🎨 For each plant I had a custom icons drawn to resemble the real life plants:
+
+![Image of all the plant icons](./static/allplants.png) 
+
+## 👟 Next steps if there was more time
+The stipulations of the application gave only a week to code this site. Give more time I would:
+- Provide the ability to add more plants
+- Give more navigation options for moving to different days or months.
+- Simplify some of the conditional logic in the click event on the Next/Last buttons.
+
+---
 
 ## 🚘 What is running under the hood?
 
@@ -46,10 +77,16 @@ _See below a couple ways to use this tool as well as the work that went into cre
 
 - This site was spun up using [Gatsby 2.18.8](https://www.gatsbyjs.org/) and many of the dependencies will be related to their default dependencies.
 
-Here is a quick look at the top-level files and directories you'll see in this application.
+Here is a quick look at the file tree and directories you'll see in this application. Not all are displayed. I've highlighted the most important ones below.
 
     ├── node_modules
     ├── src
+       ├── components
+       ├── css
+       ├── data
+       └── pages
+          ├── 404.js
+          └── index.js
     ├── static
     ├── .gitignore
     ├── .prettierignore
@@ -63,40 +100,38 @@ Here is a quick look at the top-level files and directories you'll see in this a
     ├── README.md
     └── tailwind.config.js
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+-  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
-1.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+-  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
 
-1. **`/static`**: This folder is used to hold svg images for each plant. The reference is held in the data.json file.
+    - **`/components`**: This folder contains all of the modular components used as the building blocks of the site. This includes the plant cards and the plant card container.
 
-1.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+    - **`/css`**: This folder contains the tailwind.css file which was used to style the site.
 
-1.  **`.prettierignore`**: This file tells Prettier which files it should not format when it runs.
+    - **`/data`**: This folder contains the data.json file that was supplied for the coding challenge. Only two modifications were made to each plant. They were each given a key property and an image path property.
 
-1.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+    - **`/pages`**: This folder contains all of the pages for the website. The entry point for the site is the index.js file contained here. This is the main page and is the highest parent component.
 
-1.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+- **`/static`**: This folder is used to hold svg images for each plant. The reference is held in the data.json file.
 
-1.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+-  **`gatsby-browser.js`**: This file is where Gatsby imports the Tailwind dependency.
 
-1.  **`LICENSE`**: Gatsby is licensed under the MIT license.
+-  **`LICENSE`**: This site is licensed under the MIT license.
 
-1. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+- **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
-1. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+- **`postcss.config.js`**: This file is used to configure the plugin for Tailwind.
 
-1. **`postcss.config.js`**: This file is used to configure the plugin for Tailwind.
+- **`README.md`**: A text file containing useful reference information about the project. You're reading it now. 😉
 
-1. **`README.md`**: A text file containing useful reference information about the project. You're reading it now. 😉
-
-1. **`tailwind.config.js`**: This file contains any modifications or configurations made by the developer to the Tailwind rules. The only changes I made were to add an extra small screen size.
+- **`tailwind.config.js`**: This file contains any modifications or configurations made by the developer to the Tailwind rules. The only changes I made were to add an extra small screen size.
 
 
-<!-- ## 🚀 Deployed With Netlify
+## 🚀 Deployed With Netlify
 
 - Learn more about deploying your code to Netlify
 
-  [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default) -->
+  [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
 
 ## 👋 Want to learn more?
 
