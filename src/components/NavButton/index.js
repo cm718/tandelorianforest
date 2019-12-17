@@ -11,7 +11,7 @@ const NavButton = ({ name, handleNavButton }) => {
             border border-green-500
             hover:bg-green-500 
             focus:outline-none focus-shadow-outline 
-            rounded">{name} Day</button>
+            rounded">{name}</button>
   )
 }
 
