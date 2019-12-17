@@ -13,7 +13,7 @@ const Card = ({ water, src, name }) => {
       </div>
       {/* image tag with styles and src */}
       <img
-        style={{ width: "125px", height: "125px" }}
+        style={{ width: "225px", height: "225px", paddingBottom:"40px" }}
         className="mx-auto"
         src={src}
         alt={name}
