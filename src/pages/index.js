@@ -207,8 +207,6 @@ const IndexPage = () => {
           </CardContainer>
         </div>
       ) : null}
-
-      <Footer />
     </div>
   )
 }
