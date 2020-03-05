@@ -11,7 +11,6 @@ describe("Navigation button renders correctly", () => {
           class=" bg-green-600  text-white font-semibold  py-1 px-2 w-full md:w-32   border border-green-500 hover:bg-green-500  focus:outline-none focus-shadow-outline  rounded"
         >
           Next
-           Day
         </button>
       </div>
     `)

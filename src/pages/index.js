@@ -3,7 +3,6 @@ import Card from "../components/Card"
 import plantData from "../data/data.json"
 import Title from '../components/Title'
 import NavButton from "../components/NavButton"
-import Footer from '../components/Footer'
 import CardContainer from '../components/CardContainer'
 import Message from '../components/Message'
 
